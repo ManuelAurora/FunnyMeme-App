@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: *** Variables ***
     let imagePickerController = UIImagePickerController()
+    var topTextActivated = false
    
     // MARK: *** Outlets ***
     @IBOutlet weak var toolBar:         UIToolbar!
@@ -155,15 +156,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func defaultText() {
         topTextField.text    = "Top"
         bottomTextField.text = "Bottom"
+        topTextField.resignFirstResponder()
+        bottomTextField.resignFirstResponder()
     }
     
     // MARK: *** Keyboard manipulations ***
     func keyboardWillShow(notification: NSNotification) {
+        if !topTextActivated {
         view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        if !topTextActivated {
         view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -184,10 +191,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.text == "Top" || textField.text == "Bottom" { textField.text = "" }
+        if textField == topTextField { topTextActivated = true }
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        topTextActivated = false
         return true
     }
     
