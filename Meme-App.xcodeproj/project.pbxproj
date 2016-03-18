@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6465C6371C9BE656007DDE51 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6465C6361C9BE656007DDE51 /* Meme.swift */; };
 		647566401C9AF59700C81EA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6475663F1C9AF59700C81EA8 /* AppDelegate.swift */; };
 		647566421C9AF59700C81EA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647566411C9AF59700C81EA8 /* ViewController.swift */; };
 		647566451C9AF59700C81EA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 647566431C9AF59700C81EA8 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6465C6361C9BE656007DDE51 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		6475663C1C9AF59700C81EA8 /* Meme-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6475663F1C9AF59700C81EA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		647566411C9AF59700C81EA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				6475663F1C9AF59700C81EA8 /* AppDelegate.swift */,
 				647566411C9AF59700C81EA8 /* ViewController.swift */,
+				6465C6361C9BE656007DDE51 /* Meme.swift */,
 				647566431C9AF59700C81EA8 /* Main.storyboard */,
 				647566461C9AF59700C81EA8 /* Assets.xcassets */,
 				647566481C9AF59700C81EA8 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6465C6371C9BE656007DDE51 /* Meme.swift in Sources */,
 				647566421C9AF59700C81EA8 /* ViewController.swift in Sources */,
 				647566401C9AF59700C81EA8 /* AppDelegate.swift in Sources */,
 			);
@@ -284,6 +288,7 @@
 				647566501C9AF59700C81EA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
