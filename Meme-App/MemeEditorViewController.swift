@@ -33,10 +33,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         activityViewController.completionWithItemsHandler = {(activityType, completed: Bool, returnedItems:[AnyObject]?, error: NSError?) in
             
-            let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, image: self.imageView!.image!)
-            
-            self.appDelegate.memes.append(meme)
-            
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
