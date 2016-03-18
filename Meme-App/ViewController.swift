@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: *** Variables ***
     let imagePickerController = UIImagePickerController()
     var topTextActivated = false
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
    
     // MARK: *** Outlets ***
     @IBOutlet weak var toolBar:         UIToolbar!
@@ -31,7 +32,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(activityViewController, animated: true, completion: nil)
         
         activityViewController.completionWithItemsHandler = {(activityType, completed: Bool, returnedItems:[AnyObject]?, error: NSError?) in
+            
             let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, image: self.imageView!.image!)
+            
+            self.appDelegate.memes.append(meme)
+            
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
