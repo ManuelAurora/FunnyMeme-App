@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController
 //  Meme-App
 //
 //  Created by Мануэль on 17.03.16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate
 {
     
     // MARK: *** Variables ***
@@ -168,13 +168,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: *** Keyboard manipulations ***
     func keyboardWillShow(notification: NSNotification) {
         if !topTextActivated {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        view.frame.origin.y = getKeyboardHeight(notification) * (-1)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if !topTextActivated {
-        view.frame.origin.y += getKeyboardHeight(notification)
+        view.frame.origin.y = 0
         }
     }
     

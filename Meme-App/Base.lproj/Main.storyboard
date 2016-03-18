@@ -81,7 +81,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gJl-LC-hRt">
-                        <barButtonItem key="leftBarButtonItem" title="Share" id="5Ss-x5-yAJ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="5Ss-x5-yAJ">
                             <connections>
                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="cPh-Xe-ano"/>
                             </connections>
