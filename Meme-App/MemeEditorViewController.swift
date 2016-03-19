@@ -41,8 +41,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         presentViewController(activityViewController, animated: true, completion: nil)
         
         activityViewController.completionWithItemsHandler = {(activityType, completed: Bool, returnedItems:[AnyObject]?, error: NSError?) in
-            
+            if completed {
             self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }
     }
     
@@ -56,13 +57,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func pickImage(sender: UIBarButtonItem) {        
       
         imagePickerController.delegate = self
-        
-        if sender.title == "Camera" {
-            imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            imagePickerController.sourceType = .Camera
+            albumButton.enabled = true
         } else {
-            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePickerController.sourceType = .PhotoLibrary
+            albumButton.enabled = false
         }
-        
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
@@ -200,7 +201,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "TOP" || textField.text == "BOTTOMd" { textField.text = "" }
+        if textField.text == "TOP" || textField.text == "BOTTOM" { textField.text = "" }
         if textField == topTextField { topTextActivated = true }
     }
 
@@ -208,6 +209,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         textField.resignFirstResponder()
         topTextActivated = false
         return true
-    }    
+    }
 }
 

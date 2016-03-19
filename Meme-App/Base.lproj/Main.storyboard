@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Edit meme controller scene-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MemeEditorViewController" id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEditorViewController" id="BYZ-38-t0r" userLabel="Edit meme controller scene" customClass="MemeEditorViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -33,7 +33,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2eu-MS-BT9"/>
-                                    <barButtonItem title="Album" id="qar-3p-n8r">
+                                    <barButtonItem systemItem="camera" id="qar-3p-n8r">
                                         <connections>
                                             <action selector="pickImage:" destination="BYZ-38-t0r" id="B19-v1-h0z"/>
                                         </connections>
@@ -356,18 +356,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UX5-Kj-l5k">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UX5-Kj-l5k">
+                                <rect key="frame" x="0.0" y="123" width="320" height="322"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="322" id="6H8-5r-FMa"/>
+                                    <constraint firstAttribute="width" constant="320" id="V35-Z5-0s5"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.82624772589999995" green="0.85364583329999999" blue="0.84066351179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="UX5-Kj-l5k" firstAttribute="leading" secondItem="07U-qf-Hkb" secondAttribute="leading" id="OWI-sU-AVF"/>
-                            <constraint firstItem="Wr8-gh-IUZ" firstAttribute="top" secondItem="UX5-Kj-l5k" secondAttribute="bottom" id="bcg-vV-xH4"/>
-                            <constraint firstAttribute="trailing" secondItem="UX5-Kj-l5k" secondAttribute="trailing" id="i1f-1W-WID"/>
-                            <constraint firstItem="UX5-Kj-l5k" firstAttribute="top" secondItem="pq7-iK-rau" secondAttribute="bottom" constant="-20" id="qUa-Uz-Nqz"/>
+                            <constraint firstItem="UX5-Kj-l5k" firstAttribute="centerY" secondItem="07U-qf-Hkb" secondAttribute="centerY" id="bVG-P2-AUR"/>
+                            <constraint firstItem="UX5-Kj-l5k" firstAttribute="centerX" secondItem="07U-qf-Hkb" secondAttribute="centerX" constant="-0.5" id="yXD-36-cUo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7TA-vd-Wy9"/>
