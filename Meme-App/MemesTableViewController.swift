@@ -45,43 +45,30 @@ class MemesTableViewController: UITableViewController
         // #warning Incomplete implementation, return the number of rows
         return appDelegate.memes.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell", forIndexPath: indexPath) as! MemeTableViewCell
         let meme = appDelegate.memes[indexPath.row]
         
-        let topText    = NSAttributedString(string: meme.topText!, attributes: setupTextAttributes())
-        let bottomText = NSAttributedString(string: meme.bottomText!, attributes: setupTextAttributes())
+        let topText    = NSAttributedString(string: meme.topText!,    attributes: appDelegate.setupTextAttributes(14))
+        let bottomText = NSAttributedString(string: meme.bottomText!, attributes: appDelegate.setupTextAttributes(14))
         
         
         cell.memeImageView.image = meme.image
         cell.memeTopLabel.attributedText = topText
         cell.memeBottomLabel.attributedText = bottomText
-        cell.memeTitleLabel.text = "\(meme.topText!) \(meme.bottomText!)"
+        cell.memeTitleLabel.text = "\(meme.topText!) ... \(meme.bottomText!)"
         
         return cell
     }
     
-    
-    func setupTextAttributes() -> [String: NSObject] {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        let meme = appDelegate.memes[indexPath.row]
+        controller.meme = meme
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .Center
-        
-        let textAttributes = [
-            NSFontAttributeName:            UIFont(name: "HelveticaNeue-CondensedBlack", size: 14)!,
-            NSStrokeWidthAttributeName:     -6.0,
-            NSParagraphStyleAttributeName:  paragraphStyle,
-            NSStrokeColorAttributeName:     UIColor.blackColor(),
-            NSForegroundColorAttributeName: UIColor.whiteColor()
-        ]
-        
-        return textAttributes
+        navigationController?.pushViewController(controller, animated: true)
     }
-
-    
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

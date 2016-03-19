@@ -11,11 +11,21 @@ import UIKit
 class DetailViewController: UIViewController
 {
     @IBOutlet weak var imageView: UIImageView?
-    @IBOutlet weak var topTextField: UITextField!
-    @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var topTextLabel: UILabel?
+    @IBOutlet weak var bottomTextLabel: UILabel?
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var meme = Meme?()
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)     
+        super.viewWillAppear(animated)
+        
+        let topText    = NSAttributedString(string: meme!.topText!, attributes: appDelegate.setupTextAttributes(40))
+        let bottomText = NSAttributedString(string: meme!.bottomText!, attributes: appDelegate.setupTextAttributes(40))
+        
+        imageView?.image = meme?.image
+        topTextLabel?.attributedText = topText
+        bottomTextLabel?.attributedText = bottomText
     }
     
     override func viewDidLoad() {

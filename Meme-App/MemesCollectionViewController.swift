@@ -28,7 +28,7 @@ class MemesCollectionViewController: UICollectionViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         let space: CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / 3
         
@@ -54,6 +54,16 @@ class MemesCollectionViewController: UICollectionViewController
 
     // MARK: UICollectionViewDataSource
 
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        
+        let meme = appDelegate.memes[indexPath.row]
+        controller.meme = meme
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -63,46 +73,19 @@ class MemesCollectionViewController: UICollectionViewController
         return appDelegate.memes.count
     }
 
+      
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("meme", forIndexPath: indexPath) as! MemeCollectionCollectionViewCell
      
         let meme = appDelegate.memes[indexPath.row]
         
-        let topText    = NSAttributedString(string: meme.topText!, attributes: setupTextAttributes())
-        let bottomText = NSAttributedString(string: meme.bottomText!, attributes: setupTextAttributes())
+        let topText    = NSAttributedString(string: meme.topText!,    attributes: appDelegate.setupTextAttributes(17))
+        let bottomText = NSAttributedString(string: meme.bottomText!, attributes: appDelegate.setupTextAttributes(17))
         
         cell.memeImageView.image            = meme.image
         cell.memeTopLabel.attributedText    = topText
         cell.memeBottomLabel.attributedText = bottomText
     
         return cell
-    }
-    
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let controller = storyboard?.instantiateViewControllerWithIdentifier("MemeDetail") as! DetailViewController
-        let meme = appDelegate.memes[indexPath.row]
-        let image = controller.imageView?.image
-        controller.imageView?.image     = meme.image
-        controller.topTextField.text    = meme.topText
-        controller.bottomTextField.text = meme.bottomText
-        
-        presentViewController(controller, animated: true, completion: nil)
-    }
-    
-    func setupTextAttributes() -> [String: NSObject] {
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .Center
-        
-        let textAttributes = [
-            NSFontAttributeName:            UIFont(name: "HelveticaNeue-CondensedBlack", size: 17)!,
-            NSStrokeWidthAttributeName:     -6.0,
-            NSParagraphStyleAttributeName:  paragraphStyle,
-            NSStrokeColorAttributeName:     UIColor.blackColor(),
-            NSForegroundColorAttributeName: UIColor.whiteColor()
-        ]
-        
-        return textAttributes
-    }
-    
+    }        
 }

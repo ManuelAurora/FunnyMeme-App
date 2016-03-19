@@ -64,7 +64,7 @@
                             </textField>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15755814995146239" green="0.1906850961538461" blue="0.18163617247172328" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Q7S-SY-zWo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="03T-fK-dvd"/>
                             <constraint firstAttribute="trailing" secondItem="hEz-nY-8hv" secondAttribute="trailing" id="23R-Cl-lFb"/>
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253" y="1406"/>
+            <point key="canvasLocation" x="1959" y="663"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uEk-Jb-WDj">
@@ -118,12 +118,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="hCa-d9-VVM" kind="relationship" relationship="viewControllers" id="gyg-dQ-Lzc"/>
-                        <segue destination="5L4-K6-ny0" kind="relationship" relationship="viewControllers" id="SkS-10-LqG"/>
+                        <segue destination="5L4-K6-ny0" kind="relationship" relationship="viewControllers" id="u8p-LG-OnA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZ0-pL-I7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="-852"/>
+            <point key="canvasLocation" x="988" y="-852"/>
         </scene>
         <!--Sent memes-->
         <scene sceneID="8Pt-Rm-f3G">
@@ -133,7 +133,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.82624772589999995" green="0.85364583329999999" blue="0.84066351179999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.82624772589999995" green="0.85364583329999999" blue="0.84066351179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeCell" rowHeight="90" id="H1I-22-Ms1" customClass="MemeTableViewCell" customModule="Meme_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="90"/>
@@ -154,21 +155,21 @@
                                             <rect key="frame" x="0.0" y="65" width="99" height="18"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My1-17-h6U">
-                                            <rect key="frame" x="107" y="34" width="205" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My1-17-h6U">
+                                            <rect key="frame" x="107" y="33" width="205" height="23"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="19"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9em-lu-QSP">
                                             <rect key="frame" x="0.0" y="7" width="99" height="18"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -189,6 +190,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="backgroundColor" red="0.82624772589999995" green="0.85364583329999999" blue="0.84066351179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="memeBottomLabel" destination="c9K-3A-52O" id="Ec5-QW-14q"/>
                                     <outlet property="memeImageView" destination="eS5-Sh-xGx" id="9Vf-kO-d9X"/>
@@ -202,7 +204,7 @@
                             <outlet property="delegate" destination="kGD-zi-q4d" id="imU-AN-vqF"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="kOi-0C-lbI"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="TableImage" id="kOi-0C-lbI"/>
                     <navigationItem key="navigationItem" title="Sent memes" id="2UJ-go-BKG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="tH1-1m-Wu6">
                             <connections>
@@ -213,7 +215,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IP9-8e-cUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1503" y="663"/>
+            <point key="canvasLocation" x="1445" y="663"/>
         </scene>
         <!--Sent memes-->
         <scene sceneID="umy-Sa-4jO">
@@ -223,6 +225,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
+                        <color key="backgroundColor" red="0.82624772588492057" green="0.85364583333333333" blue="0.84066351183647836" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dAF-P2-fD0">
                             <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -284,7 +287,7 @@
                             <outlet property="delegate" destination="Ddt-sV-xj8" id="PaY-Bg-ygS"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="3xV-ss-BIM"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="CollectionImage" id="3xV-ss-BIM"/>
                     <navigationItem key="navigationItem" title="Sent memes" id="SJs-ov-TLc">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="G70-fR-jFV">
                             <connections>
@@ -298,7 +301,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7M-nt-WLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32" y="663"/>
+            <point key="canvasLocation" x="564" y="663"/>
         </scene>
         <!--Item-->
         <scene sceneID="BEM-bB-cVA">
@@ -319,13 +322,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uii-pz-Ntr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="811" y="1406"/>
+            <point key="canvasLocation" x="1775" y="-87"/>
         </scene>
-        <!--Item-->
+        <!--Collection of memes-->
         <scene sceneID="zfQ-0D-DJD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5L4-K6-ny0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="CollectionImage" id="6R9-qg-Pgi"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5L4-K6-ny0" userLabel="Collection of memes" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="CollectionImage" id="6R9-qg-Pgi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gW-Gh-nCJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -334,17 +337,17 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ddt-sV-xj8" kind="relationship" relationship="rootViewController" id="OBX-yg-lQU"/>
+                        <segue destination="Ddt-sV-xj8" kind="relationship" relationship="rootViewController" id="Bqf-ku-OZU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eb-Gb-Kfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="363" y="-87"/>
+            <point key="canvasLocation" x="705" y="-87"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="CfH-03-RfC">
             <objects>
-                <viewController storyboardIdentifier="MemeDetail" id="yvL-a0-e0K" customClass="DetailViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="yvL-a0-e0K" customClass="DetailViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pq7-iK-rau"/>
                         <viewControllerLayoutGuide type="bottom" id="Wr8-gh-IUZ"/>
@@ -357,59 +360,58 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97b-8q-WWU">
-                                <rect key="frame" x="0.0" y="72" width="320" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <connections>
-                                    <outlet property="delegate" destination="yvL-a0-e0K" id="B2J-VF-u6k"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Bottom" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-YB-gEN">
-                                <rect key="frame" x="0.0" y="473" width="320" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awB-Bt-6ON">
+                                <rect key="frame" x="0.0" y="44" width="320" height="51"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="wnc-DE-nac"/>
+                                    <constraint firstAttribute="height" constant="51" id="7l3-Oq-wnI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="yes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="yvL-a0-e0K" id="8I1-F5-8T1"/>
-                                </connections>
-                            </textField>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cd-cc-x17">
+                                <rect key="frame" x="0.0" y="466" width="320" height="58"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="5G9-dn-XSK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.82624772589999995" green="0.85364583329999999" blue="0.84066351179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Wr8-gh-IUZ" firstAttribute="top" secondItem="Lrc-YB-gEN" secondAttribute="bottom" constant="44" id="6Dk-0U-dci"/>
-                            <constraint firstAttribute="trailing" secondItem="Lrc-YB-gEN" secondAttribute="trailing" id="B55-AO-Zqj"/>
-                            <constraint firstItem="97b-8q-WWU" firstAttribute="leading" secondItem="07U-qf-Hkb" secondAttribute="leading" id="MCd-D8-u3z"/>
-                            <constraint firstItem="Lrc-YB-gEN" firstAttribute="leading" secondItem="07U-qf-Hkb" secondAttribute="leading" id="MN6-s5-WAW"/>
+                            <constraint firstItem="awB-Bt-6ON" firstAttribute="top" secondItem="pq7-iK-rau" secondAttribute="bottom" constant="24" id="6h2-aN-bRs"/>
                             <constraint firstItem="UX5-Kj-l5k" firstAttribute="leading" secondItem="07U-qf-Hkb" secondAttribute="leading" id="OWI-sU-AVF"/>
+                            <constraint firstItem="awB-Bt-6ON" firstAttribute="leading" secondItem="07U-qf-Hkb" secondAttribute="leading" id="Ykn-v0-L5c"/>
                             <constraint firstItem="Wr8-gh-IUZ" firstAttribute="top" secondItem="UX5-Kj-l5k" secondAttribute="bottom" id="bcg-vV-xH4"/>
-                            <constraint firstItem="97b-8q-WWU" firstAttribute="top" secondItem="pq7-iK-rau" secondAttribute="bottom" constant="52" id="drC-Om-pof"/>
-                            <constraint firstAttribute="trailing" secondItem="97b-8q-WWU" secondAttribute="trailing" id="flV-e0-9Ly"/>
+                            <constraint firstItem="Wr8-gh-IUZ" firstAttribute="top" secondItem="5cd-cc-x17" secondAttribute="bottom" constant="44" id="cfm-y5-S12"/>
                             <constraint firstAttribute="trailing" secondItem="UX5-Kj-l5k" secondAttribute="trailing" id="i1f-1W-WID"/>
+                            <constraint firstAttribute="trailing" secondItem="5cd-cc-x17" secondAttribute="trailing" id="mX6-HN-1oW"/>
                             <constraint firstItem="UX5-Kj-l5k" firstAttribute="top" secondItem="pq7-iK-rau" secondAttribute="bottom" constant="-20" id="qUa-Uz-Nqz"/>
+                            <constraint firstAttribute="trailing" secondItem="awB-Bt-6ON" secondAttribute="trailing" id="tIa-Rx-bkB"/>
+                            <constraint firstItem="5cd-cc-x17" firstAttribute="leading" secondItem="07U-qf-Hkb" secondAttribute="leading" id="tzh-Mr-SSm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7TA-vd-Wy9"/>
                     <connections>
-                        <outlet property="bottomTextField" destination="Lrc-YB-gEN" id="66A-mi-yhz"/>
+                        <outlet property="bottomTextLabel" destination="5cd-cc-x17" id="UyK-Hi-gfu"/>
                         <outlet property="imageView" destination="UX5-Kj-l5k" id="bEI-CC-3AK"/>
-                        <outlet property="topTextField" destination="97b-8q-WWU" id="tM9-gJ-rDs"/>
+                        <outlet property="topTextLabel" destination="awB-Bt-6ON" id="6QC-G1-xzd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fp3-XR-Hz9" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="663"/>
+            <point key="canvasLocation" x="1007" y="663"/>
         </scene>
-        <!--Item-->
+        <!--Table of memes-->
         <scene sceneID="dMp-Cg-UCh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hCa-d9-VVM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="TableImage" id="3Os-6h-ddn"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hCa-d9-VVM" userLabel="Table of memes" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="TableImage" id="3Os-6h-ddn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tf3-me-Ppo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -423,7 +425,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyD-tZ-Kfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="-87"/>
+            <point key="canvasLocation" x="1307" y="-87"/>
         </scene>
     </scenes>
     <resources>
