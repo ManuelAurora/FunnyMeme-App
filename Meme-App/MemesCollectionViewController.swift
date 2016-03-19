@@ -8,15 +8,25 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class MemesCollectionViewController: UICollectionViewController
 {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
+    override func viewWillAppear(animated: Bool) {
+        collectionView?.reloadData()
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()     
+        super.viewDidLoad()
+        
+        let space: CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3
+        
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,9 +60,9 @@ class MemesCollectionViewController: UICollectionViewController
      
         let meme = appDelegate.memes[indexPath.row]
         
-        cell.image      = meme.image
-        cell.topText    = meme.topText
-        cell.bottomText = meme.bottomText
+        cell.memeImageView.image  = meme.image
+        cell.memeTopLabel.text    = meme.topText
+        cell.memeBottomLabel.text = meme.bottomText
     
         return cell
     }
