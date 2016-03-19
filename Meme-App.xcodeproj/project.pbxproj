@@ -66,20 +66,52 @@
 		6475663E1C9AF59700C81EA8 /* Meme-App */ = {
 			isa = PBXGroup;
 			children = (
-				6475663F1C9AF59700C81EA8 /* AppDelegate.swift */,
-				647566411C9AF59700C81EA8 /* ViewController.swift */,
+				647EA10E1C9DB29B00574B58 /* Controllers */,
+				647EA10F1C9DB2B200574B58 /* Views */,
+				647EA1101C9DB2BD00574B58 /* Model */,
+				647EA1111C9DB2D100574B58 /* Support files */,
+			);
+			path = "Meme-App";
+			sourceTree = "<group>";
+		};
+		647EA10E1C9DB29B00574B58 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				647566411C9AF59700C81EA8 /* MemeEditorViewController.swift */,
+				645FD2B11C9D44EE005B769D /* MemesTableViewController.swift */,
 				6465C63C1C9C50CA007DDE51 /* DetailViewController.swift */,
 				6465C6381C9C4BD9007DDE51 /* MemesCollectionViewController.swift */,
-				645FD2B11C9D44EE005B769D /* MemesTableViewController.swift */,
-				6465C63A1C9C4E54007DDE51 /* MemeCollectionViewCell.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		647EA10F1C9DB2B200574B58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				645FD2B31C9D457A005B769D /* MemeTableViewCell.swift */,
+				6465C63A1C9C4E54007DDE51 /* MemeCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		647EA1101C9DB2BD00574B58 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				6465C6361C9BE656007DDE51 /* Meme.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		647EA1111C9DB2D100574B58 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				6475663F1C9AF59700C81EA8 /* AppDelegate.swift */,
 				647566431C9AF59700C81EA8 /* Main.storyboard */,
 				647566461C9AF59700C81EA8 /* Assets.xcassets */,
 				647566481C9AF59700C81EA8 /* LaunchScreen.storyboard */,
 				6475664B1C9AF59700C81EA8 /* Info.plist */,
 			);
-			path = "Meme-App";
+			name = "Support files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +191,7 @@
 				6465C6371C9BE656007DDE51 /* Meme.swift in Sources */,
 				6465C63D1C9C50CA007DDE51 /* DetailViewController.swift in Sources */,
 				645FD2B21C9D44EE005B769D /* MemesTableViewController.swift in Sources */,
-				647566421C9AF59700C81EA8 /* ViewController.swift in Sources */,
+				647566421C9AF59700C81EA8 /* MemeEditorViewController.swift in Sources */,
 				647566401C9AF59700C81EA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,7 +305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Meme-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "AM.Meme-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "AM.FunMeme-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -284,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Meme-App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "AM.Meme-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "AM.FunMeme-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

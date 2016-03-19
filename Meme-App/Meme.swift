@@ -1,6 +1,4 @@
-//
 //  Meme.swift
-//  Meme-App
 //
 //  Created by Мануэль on 18.03.16.
 //  Copyright © 2016 AuroraInterplay. All rights reserved.

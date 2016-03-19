@@ -1,6 +1,4 @@
-//
 //  MemeEditorViewController
-//  Meme-App
 //
 //  Created by Мануэль on 17.03.16.
 //  Copyright © 2016 AuroraInterplay. All rights reserved.
@@ -23,11 +21,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var topTextField:    UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    // MARK: *** Actions ***
     @IBAction func shareMeme(sender: AnyObject) {
         
         var meme = Meme()
-        meme.image = imageView?.image
-        meme.topText = topTextField.text
+        meme.image      = imageView?.image
+        meme.topText    = topTextField.text
         meme.bottomText = bottomTextField.text
         
         let memedImage = generateMemedImage()
@@ -46,8 +45,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
     }
-    
-    // MARK: *** Actions ***
+   
     @IBAction func cancel(sender: UIBarButtonItem) {
         imageView?.image = nil
         defaultText()
@@ -57,6 +55,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func pickImage(sender: UIBarButtonItem) {        
       
         imagePickerController.delegate = self
+        
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             imagePickerController.sourceType = .Camera
             albumButton.enabled = true
@@ -72,8 +71,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewWillAppear(animated)
         
         configureButtons()
-        subscribeToKeyboardNotification()
-      
+        subscribeToKeyboardNotification()      
     }
     
     override func viewWillDisappear(animated: Bool) {

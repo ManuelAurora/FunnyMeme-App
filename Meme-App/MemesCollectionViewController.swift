@@ -1,6 +1,4 @@
-//
 //  MemesCollectionViewController.swift
-//  Meme-App
 //
 //  Created by Мануэль on 18.03.16.
 //  Copyright © 2016 AuroraInterplay. All rights reserved.
@@ -10,10 +8,13 @@ import UIKit
 
 class MemesCollectionViewController: UICollectionViewController
 {
+    // MARK: *** Variables ***
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    // MARK: *** Outlets ***
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
+    // MARK: *** Actions ***
     @IBAction func addNewMeme(sender: UIBarButtonItem) {
         let controller    = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         let navController = UINavigationController(rootViewController: controller)
@@ -21,6 +22,7 @@ class MemesCollectionViewController: UICollectionViewController
         presentViewController(navController, animated: true, completion: nil)
     }
     
+    // MARK: *** Overrided functions ***
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.reloadData()
@@ -30,30 +32,18 @@ class MemesCollectionViewController: UICollectionViewController
         super.viewDidLoad()
        
         let space: CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3
+        let dimension      = (view.frame.size.width - (2 * space)) / 3
         
+        flowLayout.itemSize                = CGSizeMake(dimension, dimension)
+        flowLayout.minimumLineSpacing      = space
         flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
     // MARK: UICollectionViewDataSource
-
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController

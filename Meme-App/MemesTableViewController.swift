@@ -1,6 +1,4 @@
-//
 //  MemesTableViewController.swift
-//  Meme-App
 //
 //  Created by Мануэль on 19.03.16.
 //  Copyright © 2016 AuroraInterplay. All rights reserved.
@@ -10,15 +8,27 @@ import UIKit
 
 class MemesTableViewController: UITableViewController
 {
-
+    // MARK: *** Variables ***
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate    
     
+    // MARK: *** Actions ***
     @IBAction func addNewMeme(sender: UIBarButtonItem) {
-        let controller = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        let controller    = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         let navController = UINavigationController.init(rootViewController: controller)
+        
         presentViewController(navController, animated: true, completion: nil)
     }
     
+    // MARK: - Table view data source
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return appDelegate.memes.count
+    }
+    
+    // MARK: *** Overrided functions ***
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -31,19 +41,6 @@ class MemesTableViewController: UITableViewController
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return appDelegate.memes.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -53,65 +50,19 @@ class MemesTableViewController: UITableViewController
         let topText    = NSAttributedString(string: meme.topText!,    attributes: appDelegate.setupTextAttributes(14))
         let bottomText = NSAttributedString(string: meme.bottomText!, attributes: appDelegate.setupTextAttributes(14))
         
-        
-        cell.memeImageView.image = meme.image
-        cell.memeTopLabel.attributedText = topText
+        cell.memeImageView.image            = meme.image
+        cell.memeTitleLabel.text            = "\(meme.topText!) ... \(meme.bottomText!)"
+        cell.memeTopLabel.attributedText    = topText
         cell.memeBottomLabel.attributedText = bottomText
-        cell.memeTitleLabel.text = "\(meme.topText!) ... \(meme.bottomText!)"
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
         let controller = storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-        let meme = appDelegate.memes[indexPath.row]
-        controller.meme = meme
+        
+        controller.meme = appDelegate.memes[indexPath.row]
         
         navigationController?.pushViewController(controller, animated: true)
-    }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    }  
 }
