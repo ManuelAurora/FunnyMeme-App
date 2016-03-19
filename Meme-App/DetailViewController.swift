@@ -10,9 +10,13 @@ import UIKit
 
 class DetailViewController: UIViewController
 {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView?
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)     
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

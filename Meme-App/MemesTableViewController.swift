@@ -11,17 +11,22 @@ import UIKit
 class MemesTableViewController: UITableViewController
 {
 
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate    
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var memeImageView: UIImageView!
-    @IBOutlet weak var topMemeLabel: UILabel!
-    @IBOutlet weak var bottomMemeLabel: UILabel!
+    @IBAction func addNewMeme(sender: UIBarButtonItem) {
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("MemeEdit") as! ViewController
+        let navController = UINavigationController.init(rootViewController: controller)
+        presentViewController(navController, animated: true, completion: nil)
+    }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
     override func viewDidLoad() {
+        tableView.rowHeight = 90
         super.viewDidLoad()
-
-       tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,12 +48,38 @@ class MemesTableViewController: UITableViewController
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell", forIndexPath: indexPath) as! MemeTableViewCell
+        let meme = appDelegate.memes[indexPath.row]
+        
+        let topText    = NSAttributedString(string: meme.topText!, attributes: setupTextAttributes())
+        let bottomText = NSAttributedString(string: meme.bottomText!, attributes: setupTextAttributes())
+        
+        
+        cell.memeImageView.image = meme.image
+        cell.memeTopLabel.attributedText = topText
+        cell.memeBottomLabel.attributedText = bottomText
+        cell.memeTitleLabel.text = "\(meme.topText!) \(meme.bottomText!)"
+        
         return cell
     }
+    
+    
+    func setupTextAttributes() -> [String: NSObject] {
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Center
+        
+        let textAttributes = [
+            NSFontAttributeName:            UIFont(name: "HelveticaNeue-CondensedBlack", size: 14)!,
+            NSStrokeWidthAttributeName:     -6.0,
+            NSParagraphStyleAttributeName:  paragraphStyle,
+            NSStrokeColorAttributeName:     UIColor.blackColor(),
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        ]
+        
+        return textAttributes
+    }
+
     
 
     /*

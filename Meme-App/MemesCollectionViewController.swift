@@ -14,7 +14,15 @@ class MemesCollectionViewController: UICollectionViewController
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
+    @IBAction func addNewMeme(sender: UIBarButtonItem) {
+        let controller    = storyboard?.instantiateViewControllerWithIdentifier("MemeEdit") as! ViewController
+        let navController = UINavigationController(rootViewController: controller)
+        
+        presentViewController(navController, animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         collectionView?.reloadData()
     }
     
@@ -60,22 +68,41 @@ class MemesCollectionViewController: UICollectionViewController
      
         let meme = appDelegate.memes[indexPath.row]
         
-        cell.memeImageView.image  = meme.image
-        cell.memeTopLabel.text    = meme.topText
-        cell.memeBottomLabel.text = meme.bottomText
+        let topText    = NSAttributedString(string: meme.topText!, attributes: setupTextAttributes())
+        let bottomText = NSAttributedString(string: meme.bottomText!, attributes: setupTextAttributes())
+        
+        cell.memeImageView.image            = meme.image
+        cell.memeTopLabel.attributedText    = topText
+        cell.memeBottomLabel.attributedText = bottomText
     
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let controller = storyboard?.instantiateViewControllerWithIdentifier("DetailInfo") as! DetailViewController
-        let cell = appDelegate.memes[indexPath.row]
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("MemeDetail") as! DetailViewController
+        let meme = appDelegate.memes[indexPath.row]
+        let image = controller.imageView?.image
+        controller.imageView?.image     = meme.image
+        controller.topTextField.text    = meme.topText
+        controller.bottomTextField.text = meme.bottomText
         
-        controller.imageView.image = cell.image
-        controller.topTextField.text = cell.topText
-        controller.bottomTextField.text = cell.bottomText
+        presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    func setupTextAttributes() -> [String: NSObject] {
         
-        navigationController?.pushViewController(controller, animated: true)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Center
+        
+        let textAttributes = [
+            NSFontAttributeName:            UIFont(name: "HelveticaNeue-CondensedBlack", size: 17)!,
+            NSStrokeWidthAttributeName:     -6.0,
+            NSParagraphStyleAttributeName:  paragraphStyle,
+            NSStrokeColorAttributeName:     UIColor.blackColor(),
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        ]
+        
+        return textAttributes
     }
     
 }

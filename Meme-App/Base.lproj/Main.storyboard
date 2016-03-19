@@ -9,7 +9,7 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEdit" id="BYZ-38-t0r" customClass="ViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7S-SY-zWo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7S-SY-zWo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEz-nY-8hv">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEz-nY-8hv">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <animations/>
                                 <items>
@@ -41,7 +41,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g9U-g0-3pU"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9yM-B5-l0z">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9yM-B5-l0z">
                                 <rect key="frame" x="0.0" y="72" width="320" height="48"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
@@ -50,7 +50,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PYq-OJ-2RR"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Bottom" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6IK-F2-pfS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Bottom" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6IK-F2-pfS">
                                 <rect key="frame" x="0.0" y="473" width="320" height="51"/>
                                 <animations/>
                                 <constraints>
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="995" y="1250"/>
+            <point key="canvasLocation" x="1253" y="1406"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uEk-Jb-WDj">
@@ -128,7 +128,7 @@
         <!--Sent memes-->
         <scene sceneID="8Pt-Rm-f3G">
             <objects>
-                <tableViewController id="kGD-zi-q4d" customClass="MemesTableViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MemesTable" id="kGD-zi-q4d" customClass="MemesTableViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fHE-4z-9td">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,16 +143,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eS5-Sh-xGx">
-                                            <rect key="frame" x="0.0" y="0.0" width="99" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="99" height="90"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="99" id="34c-V2-g1T"/>
+                                                <constraint firstAttribute="height" constant="90" id="ZIn-At-PpW"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9K-3A-52O">
-                                            <rect key="frame" x="0.0" y="68" width="99" height="21"/>
+                                            <rect key="frame" x="0.0" y="65" width="99" height="18"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -164,9 +165,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9em-lu-QSP">
-                                            <rect key="frame" x="0.0" y="0.0" width="99" height="21"/>
+                                            <rect key="frame" x="0.0" y="7" width="99" height="18"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -178,10 +179,10 @@
                                         <constraint firstItem="9em-lu-QSP" firstAttribute="trailing" secondItem="eS5-Sh-xGx" secondAttribute="trailing" id="3p5-ks-e7k"/>
                                         <constraint firstItem="eS5-Sh-xGx" firstAttribute="leading" secondItem="IxM-Ff-feA" secondAttribute="leadingMargin" constant="-8" id="FfJ-ek-Dz8"/>
                                         <constraint firstItem="c9K-3A-52O" firstAttribute="trailing" secondItem="eS5-Sh-xGx" secondAttribute="trailing" id="Ntj-C2-phl"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="eS5-Sh-xGx" secondAttribute="bottom" constant="-8" id="Z0R-od-xRY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eS5-Sh-xGx" secondAttribute="bottom" constant="-9" id="Z0R-od-xRY"/>
                                         <constraint firstItem="My1-17-h6U" firstAttribute="leading" secondItem="eS5-Sh-xGx" secondAttribute="trailing" constant="8" id="Zgc-Em-4bI"/>
-                                        <constraint firstItem="c9K-3A-52O" firstAttribute="bottom" secondItem="eS5-Sh-xGx" secondAttribute="bottom" id="gGR-fn-Ipc"/>
-                                        <constraint firstItem="9em-lu-QSP" firstAttribute="top" secondItem="eS5-Sh-xGx" secondAttribute="top" id="pap-KW-b5C"/>
+                                        <constraint firstItem="c9K-3A-52O" firstAttribute="bottom" secondItem="eS5-Sh-xGx" secondAttribute="bottom" constant="-7" id="gGR-fn-Ipc"/>
+                                        <constraint firstItem="9em-lu-QSP" firstAttribute="top" secondItem="eS5-Sh-xGx" secondAttribute="top" constant="7" id="pap-KW-b5C"/>
                                         <constraint firstItem="My1-17-h6U" firstAttribute="centerY" secondItem="IxM-Ff-feA" secondAttribute="centerY" id="psz-HK-S93"/>
                                         <constraint firstItem="9em-lu-QSP" firstAttribute="leading" secondItem="eS5-Sh-xGx" secondAttribute="leading" id="sY9-7b-Zv5"/>
                                         <constraint firstItem="My1-17-h6U" firstAttribute="trailing" secondItem="IxM-Ff-feA" secondAttribute="trailingMargin" id="x5t-Wr-czU"/>
@@ -202,7 +203,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="kOi-0C-lbI"/>
-                    <navigationItem key="navigationItem" title="Sent memes" id="2UJ-go-BKG"/>
+                    <navigationItem key="navigationItem" title="Sent memes" id="2UJ-go-BKG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tH1-1m-Wu6">
+                            <connections>
+                                <action selector="addNewMeme:" destination="kGD-zi-q4d" id="U4w-aw-f1N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IP9-8e-cUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,7 +285,13 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="3xV-ss-BIM"/>
-                    <navigationItem key="navigationItem" title="Sent memes" id="SJs-ov-TLc"/>
+                    <navigationItem key="navigationItem" title="Sent memes" id="SJs-ov-TLc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="G70-fR-jFV">
+                            <connections>
+                                <action selector="addNewMeme:" destination="Ddt-sV-xj8" id="fuF-Ha-Ond"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="dAF-P2-fD0" id="auN-f2-ib3"/>
                     </connections>
@@ -293,6 +306,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oj2-K2-yQ3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="mMj-6F-arn"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="TLx-xG-F9n"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9DF-Dq-Sro">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -305,7 +319,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uii-pz-Ntr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="1250"/>
+            <point key="canvasLocation" x="811" y="1406"/>
         </scene>
         <!--Item-->
         <scene sceneID="zfQ-0D-DJD">
@@ -330,7 +344,7 @@
         <!--Detail View Controller-->
         <scene sceneID="CfH-03-RfC">
             <objects>
-                <viewController id="yvL-a0-e0K" customClass="DetailViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetail" id="yvL-a0-e0K" customClass="DetailViewController" customModule="Meme_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pq7-iK-rau"/>
                         <viewControllerLayoutGuide type="bottom" id="Wr8-gh-IUZ"/>
@@ -389,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fp3-XR-Hz9" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="1308"/>
+            <point key="canvasLocation" x="787" y="663"/>
         </scene>
         <!--Item-->
         <scene sceneID="dMp-Cg-UCh">
