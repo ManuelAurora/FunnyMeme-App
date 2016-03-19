@@ -25,7 +25,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func shareMeme(sender: AnyObject) {
         
+        var meme = Meme()
+        meme.image = imageView?.image
+        meme.topText = topTextField.text
+        meme.bottomText = bottomTextField.text
+        
         let memedImage = generateMemedImage()
+        
+        meme.memedImage = memedImage
+        
+        appDelegate.memes.append(meme)
         
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
@@ -124,7 +133,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             NSParagraphStyleAttributeName:  paragraphStyle,
             NSStrokeColorAttributeName:     UIColor.blackColor(),
             NSForegroundColorAttributeName: UIColor.whiteColor()
-        ]
+        ]        
         
         topTextField.defaultTextAttributes    = textAttributes
         bottomTextField.defaultTextAttributes = textAttributes
@@ -155,8 +164,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func defaultText() {
-        topTextField.text    = "Top"
-        bottomTextField.text = "Bottom"
+        topTextField.text    = "TOP"
+        bottomTextField.text = "BOTTOM"
         topTextField.resignFirstResponder()
         bottomTextField.resignFirstResponder()
     }
@@ -166,7 +175,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         if !topTextActivated {
         view.frame.origin.y = getKeyboardHeight(notification) * (-1)
         }
-    }
+           }
     
     func keyboardWillHide(notification: NSNotification) {
         if !topTextActivated {
@@ -191,7 +200,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "Top" || textField.text == "Bottom" { textField.text = "" }
+        if textField.text == "TOP" || textField.text == "BOTTOMd" { textField.text = "" }
         if textField == topTextField { topTextActivated = true }
     }
 
@@ -199,7 +208,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         textField.resignFirstResponder()
         topTextActivated = false
         return true
-    }
-    
+    }    
 }
 

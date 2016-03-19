@@ -15,7 +15,7 @@ class MemesCollectionViewController: UICollectionViewController
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
     @IBAction func addNewMeme(sender: UIBarButtonItem) {
-        let controller    = storyboard?.instantiateViewControllerWithIdentifier("MemeEdit") as! ViewController
+        let controller    = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         let navController = UINavigationController(rootViewController: controller)
         
         presentViewController(navController, animated: true, completion: nil)

@@ -14,7 +14,7 @@ class MemesTableViewController: UITableViewController
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate    
     
     @IBAction func addNewMeme(sender: UIBarButtonItem) {
-        let controller = storyboard?.instantiateViewControllerWithIdentifier("MemeEdit") as! ViewController
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         let navController = UINavigationController.init(rootViewController: controller)
         presentViewController(navController, animated: true, completion: nil)
     }
