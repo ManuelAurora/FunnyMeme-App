@@ -14,6 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var memes = [Meme]()
 
+    func setupTextAttributes(textSize: CGFloat) -> [String: NSObject] {
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Center
+        
+        let textAttributes = [
+            NSFontAttributeName:            UIFont(name: "HelveticaNeue-CondensedBlack", size: textSize)!,
+            NSStrokeWidthAttributeName:     -6.0,
+            NSParagraphStyleAttributeName:  paragraphStyle,
+            NSStrokeColorAttributeName:     UIColor.blackColor(),
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        ]
+        
+        return textAttributes
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
