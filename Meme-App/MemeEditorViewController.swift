@@ -11,15 +11,21 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: *** Variables ***
     let imagePickerController = UIImagePickerController()
-    var topTextActivated = false
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-   
+    var editMeme         = false
+    var topTextActivated = false
+  
+       
     // MARK: *** Outlets ***
     @IBOutlet weak var toolBar:         UIToolbar!
     @IBOutlet weak var imageView:       UIImageView?
     @IBOutlet weak var albumButton:     UIBarButtonItem!
     @IBOutlet weak var topTextField:    UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    
+    var topText = ""
+    var bottomText = ""
+    var image = UIImage()
     
     // MARK: *** Actions ***
     @IBAction func shareMeme(sender: AnyObject) {
@@ -80,8 +86,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if editMeme {
+            hideToolBar(true)
+        }
         
-        configureNavBar()
+        imageView?.image = image
+       
+        configureNavBar(editMeme ? true : false)
         configureToolBar()
         setupTextAttributes()
     }
@@ -163,8 +174,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func defaultText() {
-        topTextField.text    = "TOP"
-        bottomTextField.text = "BOTTOM"
+        
+        if !editMeme {
+        topText = "TOP"
+        bottomText = "BOTTOM"
+        }
+        
+        topTextField.text    = topText
+        bottomTextField.text = bottomText
         topTextField.resignFirstResponder()
         bottomTextField.resignFirstResponder()
     }

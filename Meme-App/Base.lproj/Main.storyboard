@@ -347,6 +347,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Ddt-sV-xj8" kind="relationship" relationship="rootViewController" id="Bqf-ku-OZU"/>
+                        <segue destination="yvL-a0-e0K" kind="show" id="8zy-Wk-jjx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eb-Gb-Kfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,6 +369,9 @@
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UX5-Kj-l5k">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                </variation>
                             </imageView>
                         </subviews>
                         <animations/>
@@ -379,14 +383,20 @@
                             <constraint firstItem="UX5-Kj-l5k" firstAttribute="leading" secondItem="07U-qf-Hkb" secondAttribute="leading" id="wvC-CQ-qOE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7TA-vd-Wy9"/>
+                    <navigationItem key="navigationItem" id="7TA-vd-Wy9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="gce-Xo-Oc6">
+                            <connections>
+                                <action selector="editMeme:" destination="yvL-a0-e0K" id="uai-BW-32h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="UX5-Kj-l5k" id="bEI-CC-3AK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fp3-XR-Hz9" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888.125" y="700.35211267605632"/>
+            <point key="canvasLocation" x="2252" y="1527"/>
         </scene>
         <!--Table of memes-->
         <scene sceneID="dMp-Cg-UCh">

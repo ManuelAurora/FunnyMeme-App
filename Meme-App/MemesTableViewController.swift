@@ -62,7 +62,11 @@ class MemesTableViewController: UITableViewController
         let controller = storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         
         controller.meme = appDelegate.memes[indexPath.row]
-        
+       
         navigationController?.pushViewController(controller, animated: true)
-    }  
+    }
+    
+    func editMeme() {
+        
+    }
 }

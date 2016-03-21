@@ -30,4 +30,17 @@ class DetailViewController: UIViewController
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func editMeme(sender: UIBarButtonItem) {
+        
+        let controller =      storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        let navController = UINavigationController.init(rootViewController: controller)        
+        
+        controller.editMeme = true
+        controller.image = meme!.image!
+        controller.topText = meme!.topText!
+        controller.bottomText = meme!.bottomText!
+        
+        presentViewController(navController, animated: true, completion: nil)
+        
+      }
 }
