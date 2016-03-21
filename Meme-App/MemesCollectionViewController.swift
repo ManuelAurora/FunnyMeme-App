@@ -51,7 +51,7 @@ class MemesCollectionViewController: UICollectionViewController
         let meme = appDelegate.memes[indexPath.row]
         controller.meme = meme
         
-        self.navigationController?.pushViewController(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

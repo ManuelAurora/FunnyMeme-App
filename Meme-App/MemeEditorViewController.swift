@@ -33,15 +33,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         meme.memedImage = memedImage
         
-        appDelegate.memes.append(meme)
-        
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
         presentViewController(activityViewController, animated: true, completion: nil)
         
         activityViewController.completionWithItemsHandler = {(activityType, completed: Bool, returnedItems:[AnyObject]?, error: NSError?) in
             if completed {
-            self.dismissViewControllerAnimated(true, completion: nil)
+                self.appDelegate.memes.append(meme)
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
@@ -50,6 +49,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imageView?.image = nil
         defaultText()
         navigationItem.leftBarButtonItem?.enabled = false
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func pickImage(sender: UIBarButtonItem) {        
@@ -140,10 +140,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         defaultText()
     }
     
-    func configureNavBar() {
+    func configureNavBar(LeftButtonEnabled: Bool = false) {
         navigationController?.navigationBar.frame.size.height = toolBar.frame.size.height
         navigationController?.navigationBar.translucent = true
-        self.navigationItem.leftBarButtonItem?.enabled  = false
+        self.navigationItem.leftBarButtonItem?.enabled  = LeftButtonEnabled
     }
     
     func configureToolBar() {
@@ -192,7 +192,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage  {
             imageView?.image = image
-            self.navigationItem.leftBarButtonItem?.enabled = true
+            configureNavBar(true)
         }
         
         dismissViewControllerAnimated(true, completion: nil)
