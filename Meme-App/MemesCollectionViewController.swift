@@ -9,21 +9,21 @@ import UIKit
 class MemesCollectionViewController: UICollectionViewController
 {
     // MARK: *** Variables ***
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     // MARK: *** Outlets ***
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
 
     // MARK: *** Actions ***
-    @IBAction func addNewMeme(sender: UIBarButtonItem) {
-        let controller    = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+    @IBAction func addNewMeme(_ sender: UIBarButtonItem) {
+        let controller    = storyboard?.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
         let navController = UINavigationController(rootViewController: controller)
         
-        presentViewController(navController, animated: true, completion: nil)
+        present(navController, animated: true, completion: nil)
     }
     
     // MARK: *** Overrided functions ***
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.reloadData()
     }
@@ -34,7 +34,7 @@ class MemesCollectionViewController: UICollectionViewController
         let space: CGFloat = 3.0
         let dimension      = (view.frame.size.width - (2 * space)) / 3
         
-        flowLayout.itemSize                = CGSizeMake(dimension, dimension)
+        flowLayout.itemSize                = CGSize(width: dimension, height: dimension)
         flowLayout.minimumLineSpacing      = space
         flowLayout.minimumInteritemSpacing = space
     }
@@ -44,9 +44,9 @@ class MemesCollectionViewController: UICollectionViewController
     }
    
     // MARK: UICollectionViewDataSource
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        let controller = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
         let meme = appDelegate.memes[indexPath.row]
         controller.meme = meme
@@ -54,18 +54,18 @@ class MemesCollectionViewController: UICollectionViewController
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return appDelegate.memes.count
     }
 
       
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("meme", forIndexPath: indexPath) as! MemeCollectionCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "meme", for: indexPath) as! MemeCollectionCollectionViewCell
      
         let meme = appDelegate.memes[indexPath.row]
         

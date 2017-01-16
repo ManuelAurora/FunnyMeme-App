@@ -9,14 +9,14 @@ import UIKit
 class DetailViewController: UIViewController
 {
     // MARK: *** Variables ***
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    var meme        = Meme?()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var meme: Meme?
     
     // MARK: *** Outlets ***
     @IBOutlet weak var imageView: UIImageView?    
     
     // MARK: *** Overrided functions ***
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
         imageView?.image = meme?.memedImage       
@@ -30,9 +30,9 @@ class DetailViewController: UIViewController
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func editMeme(sender: UIBarButtonItem) {
+    @IBAction func editMeme(_ sender: UIBarButtonItem) {
         
-        let controller =      storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        let controller =      storyboard?.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
         let navController = UINavigationController.init(rootViewController: controller)        
         
         controller.editMeme = true
@@ -40,7 +40,7 @@ class DetailViewController: UIViewController
         controller.topText = meme!.topText!
         controller.bottomText = meme!.bottomText!
         
-        presentViewController(navController, animated: true, completion: nil)
+        present(navController, animated: true, completion: nil)
         
       }
 }

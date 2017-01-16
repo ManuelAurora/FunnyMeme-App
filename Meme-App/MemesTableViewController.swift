@@ -9,27 +9,27 @@ import UIKit
 class MemesTableViewController: UITableViewController
 {
     // MARK: *** Variables ***
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate    
     
     // MARK: *** Actions ***
-    @IBAction func addNewMeme(sender: UIBarButtonItem) {
-        let controller    = storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+    @IBAction func addNewMeme(_ sender: UIBarButtonItem) {
+        let controller    = storyboard?.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
         let navController = UINavigationController.init(rootViewController: controller)
         
-        presentViewController(navController, animated: true, completion: nil)
+        present(navController, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appDelegate.memes.count
     }
     
     // MARK: *** Overrided functions ***
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
@@ -43,8 +43,8 @@ class MemesTableViewController: UITableViewController
         super.didReceiveMemoryWarning()
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell", forIndexPath: indexPath) as! MemeTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell", for: indexPath) as! MemeTableViewCell
         let meme = appDelegate.memes[indexPath.row]
         
         let topText    = NSAttributedString(string: meme.topText!,    attributes: appDelegate.setupTextAttributes(14))
@@ -58,8 +58,8 @@ class MemesTableViewController: UITableViewController
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
-        let controller = storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        let controller = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
         controller.meme = appDelegate.memes[indexPath.row]
        

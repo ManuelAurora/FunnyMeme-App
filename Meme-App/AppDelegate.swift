@@ -14,24 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     var memes = [Meme]()
     
      // MARK: *** Functions ***
-    func setupTextAttributes(textSize: CGFloat) -> [String: NSObject] {
+    func setupTextAttributes(_ textSize: CGFloat) -> [String: NSObject] {
         
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .Center
+        paragraphStyle.alignment = .center
         
         let textAttributes = [
             NSFontAttributeName:            UIFont(name: "HelveticaNeue-CondensedBlack", size: textSize)!,
             NSStrokeWidthAttributeName:     -6.0,
             NSParagraphStyleAttributeName:  paragraphStyle,
-            NSStrokeColorAttributeName:     UIColor.blackColor(),
-            NSForegroundColorAttributeName: UIColor.whiteColor()
-        ]
+            NSStrokeColorAttributeName:     UIColor.black,
+            NSForegroundColorAttributeName: UIColor.white
+        ] as [String : Any]
         
-        return textAttributes
+        return textAttributes as! [String : NSObject]
     }
     
      // MARK: *** Delegate functions ***
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
 }
